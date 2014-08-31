@@ -62,7 +62,7 @@ textarea {
    ========================================================================== */
 
 body {
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+    font: 16px/16px Helvetica, Helvetica Neue, Arial;
 }
 
 .wrapper {
@@ -158,19 +158,70 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
+/*
+article {
+	font-size: 0;
+}
 
+.column {
+	display: inline-block;
+}
 
+.tile {
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	min-width: 30px;
+	min-height: 30px;
+	text-align: center;
+}
+*/
 
+article {
+	position: relative;
+}
 
+article div {
+	position: absolute;
+}
 
+.tile {
+	height: 30px;
+	width: 30px;
+	text-align: center;
+}
 
+.row0 {
+	top: 0px;
+}
 
+.row1 {
+	top: 30px;
+}
 
+.row2 {
+	top: 60px;
+}
 
+.row3 {
+	top: 90px;
+}
 
+.column0 {
+	left: 0px;
+}
 
+.column1 {
+	left: 30px;
+}
 
+.column2 {
+	left: 60px;
+}
 
+.column3 {
+	left: 90px;
+}
 
 /* ==========================================================================
    Media Queries
