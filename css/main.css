@@ -102,7 +102,7 @@ nav ul {
     padding: 0;
 }
 
-nav a {
+nav div {
     display: block;
     margin-bottom: 10px;
     padding: 15px 0;
@@ -115,12 +115,12 @@ nav a {
     background: #e44d26;
 }
 
-nav a:hover,
-nav a:visited {
+nav div:hover,
+nav div:visited {
     color: white;
 }
 
-nav a:hover {
+nav div:hover {
     text-decoration: underline;
 }
 
@@ -158,24 +158,11 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
-/*
-article {
-	font-size: 0;
-}
 
-.column {
-	display: inline-block;
-}
 
-.tile {
-	font-size: 12px;
-	padding: 0;
-	margin: 0;
-	min-width: 30px;
-	min-height: 30px;
-	text-align: center;
+* {
+	outline: 1px solid pink;
 }
-*/
 
 article {
 	position: relative;
@@ -186,42 +173,58 @@ article div {
 }
 
 .tile {
-	height: 30px;
-	width: 30px;
-	text-align: center;
+	width: 121px;
 }
+
+.column0 {
+	left: 0px;
+	width: 121px;
+	height: 121px;
+	
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url(../img/github.png);
+}
+
+.column1 {
+	left: 121px;
+	width: 121px;
+	height: 121px;
+}
+
+.column2 {
+	left: 242px;
+	width: 121px;
+	height: 121px;
+}
+
+.column3 {
+	left: 363px;
+	width: 121px;
+	height: 121px;
+}
+
 
 .row0 {
 	top: 0px;
 }
 
 .row1 {
-	top: 30px;
+	top: 121px;
 }
 
 .row2 {
-	top: 60px;
+	top: 242px;
 }
 
 .row3 {
-	top: 90px;
+	top: 363px;
 }
 
-.column0 {
-	left: 0px;
-}
 
-.column1 {
-	left: 30px;
-}
 
-.column2 {
-	left: 60px;
-}
 
-.column3 {
-	left: 90px;
-}
 
 /* ==========================================================================
    Media Queries
@@ -233,7 +236,7 @@ article div {
     INTERMEDIATE: Menu
    ==================== */
 
-    nav a {
+    nav div {
         float: left;
         width: 27%;
         margin: 0 1.7%;
@@ -241,11 +244,11 @@ article div {
         margin-bottom: 0;
     }
 
-    nav li:first-child a {
+    nav li:first-child div {
         margin-left: 0;
     }
 
-    nav li:last-child a {
+    nav li:last-child div {
         margin-right: 0;
     }
 
@@ -257,7 +260,7 @@ article div {
         display: inline;
     }
 
-    .oldie nav a {
+    .oldie nav div {
         margin: 0 0.7%;
     }
 }

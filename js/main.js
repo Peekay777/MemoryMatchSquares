@@ -82,3 +82,18 @@ var MEMEMORYMATCHGAME = (function () {
 		}
 	};
 }());
+
+
+$(document).ready(function () {
+	'use strict';
+	var size = $('.selected').data('size');
+	
+	MEMEMORYMATCHGAME.setupTiles(Math.pow(size, 2));
+	
+	$('article').on('click', '.tile', function () {
+		console.log(MEMEMORYMATCHGAME.selection($(this).data('tile')));
+	});
+	
+});
+
+

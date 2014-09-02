@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Memory Match Squares</title>
+        <title>Memory Match Squared</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,12 +22,12 @@
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">Memory Match Squares</h1>
+                <h1 class="title">Memory Match<sup>2</sup></h1>
                 <nav>
                     <ul>
-                        <li data-size="4"><a href="#">4 x 4</a></li>
-                        <li data-size="6"><a href="#">6 x 6</a></li>
-                        <li data-size="8"><a href="#">8 x 8</a></li>
+                        <li class="selected" data-size="4"><div>4 x 4</div></li>
+                        <li class="" data-size="6"><div>6 x 6</div></li>
+                        <li class="" data-size="8"><div>8 x 8</div></li>
                     </ul>
                 </nav>
             </header>
@@ -37,38 +37,38 @@
             <div class="main wrapper clearfix">
 
                	<aside>
-                    <h3>Score <span>10,000  Pts</span></h3>
+                    <h3>Score <span id="score">10,000  Pts</span></h3>
                     <div>
-                    	<p>Turn <span>10</span></p>
-                    	<p>Bonus <span>x2</span></p>
+                    	<p>Turn <span id="turn">10</span></p>
+                    	<p>Bonus x<span id="bonus">2</span></p>
                     </div>
                 </aside>
                 
                 <article>
                 	<h2 class="hidden">Grid</h2>
                 	<div class="row0">
-                		<div class="column0"><div class="tile" data-tile="0">a</div></div>
-                		<div class="column1"><div class="tile" data-tile="1">a</div></div>
-                		<div class="column2"><div class="tile" data-tile="2">a</div></div>
-                		<div class="column3"><div class="tile" data-tile="3">a</div></div>
+                		<div class="column0"><img class="tile" id="tile0" data-tile="1" src="favicon.ico" alt="a"></div>
+                		<div class="column1"><img class="tile" id="tile1" data-tile="1" src="favicon.ico" alt="a"></div>
+                		<div class="column2"><img class="tile" id="tile2" data-tile="2" src="favicon.ico" alt="a"></div>
+                		<div class="column3"><img class="tile" id="tile3" data-tile="3" src="favicon.ico" alt="a"></div>
                 	</div>
                 	<div class="row1">
-                		<div class="column0"><div class="tile" data-tile="4">a</div></div>
-                		<div class="column1"><div class="tile" data-tile="5">a</div></div>
-                		<div class="column2"><div class="tile" data-tile="6">a</div></div>
-                		<div class="column3"><div class="tile" data-tile="7">a</div></div>
+                		<div class="column0"><img class="tile" id="tile4" data-tile="4" src="favicon.ico" alt="a"></div>
+                		<div class="column1"><img class="tile" id="tile5" data-tile="5" src="favicon.ico" alt="a"></div>
+                		<div class="column2"><img class="tile" id="tile6" data-tile="6" src="favicon.ico" alt="a"></div>
+                		<div class="column3"><img class="tile" id="tile7" data-tile="7" src="favicon.ico" alt="a"></div>
                 	</div>
                 	<div class="row2">
-                		<div class="column0"><div class="tile" data-tile="8">a</div></div>
-                		<div class="column1"><div class="tile" data-tile="9">a</div></div>
-                		<div class="column2"><div class="tile" data-tile="10">a</div></div>
-                		<div class="column3"><div class="tile" data-tile="11">a</div></div>
+                		<div class="column0"><img class="tile" id="tile8" data-tile="8" src="favicon.ico" alt="a"></div>
+                		<div class="column1"><img class="tile" id="tile9" data-tile="9" src="favicon.ico" alt="a"></div>
+                		<div class="column2"><img class="tile" id="tile10" data-tile="10" src="favicon.ico" alt="a"></div>
+                		<div class="column3"><img class="tile" id="tile11" data-tile="11" src="favicon.ico" alt="a"></div>
                 	</div>
                 	<div class="row3">
-                		<div class="column0"><div class="tile" data-tile="12">a</div></div>
-                		<div class="column1"><div class="tile" data-tile="13">a</div></div>
-                		<div class="column2"><div class="tile" data-tile="14">a</div></div>
-                		<div class="column3"><div class="tile" data-tile="15">a</div></div>
+                		<div class="column0"><img class="tile" id="tile12" data-tile="12" src="favicon.ico" alt="a"></div>
+                		<div class="column1"><img class="tile" id="tile13" data-tile="13" src="favicon.ico" alt="a"></div>
+                		<div class="column2"><img class="tile" id="tile14" data-tile="14" src="favicon.ico" alt="a"></div>
+                		<div class="column3"><img class="tile" id="tile15" data-tile="15" src="favicon.ico" alt="a"></div>
                 	</div>
                 </article>
 
