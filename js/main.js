@@ -15,9 +15,11 @@ var MEMEMORYMATCHGAME = (function () {
 		firstChoice,
 		secondChoice;
 	
+	/*
 	function matchChoices() {
 		return tiles[firstChoice] === tiles[secondChoice];
 	}
+	*/
 	
 	return {
 		getTurn : function () {
@@ -32,6 +34,9 @@ var MEMEMORYMATCHGAME = (function () {
 		getTiles : function () {
 			return tiles;
 		},
+		getMatches : function () {
+			return matches;
+		},
 		setupTiles : function (tilesLength) {
 			var i,
 				x,
@@ -43,7 +48,7 @@ var MEMEMORYMATCHGAME = (function () {
 			sequence = 0;
 			tiles = [];
 			score = 0;
-			matches = undefined;
+			matches = tilesLength / 2;
 			firstChoice = undefined;
 			secondChoice = undefined;
 
@@ -61,8 +66,6 @@ var MEMEMORYMATCHGAME = (function () {
 				tiles[first] = tiles[second];
 				tiles[second] = temp;
 			}
-
-			matches = tilesLength / 2;
 		},
 		selection : function (choice) {
 			if (firstChoice === undefined) {
@@ -97,7 +100,8 @@ var MEMEMORYMATCHGAME = (function () {
 $(document).ready(function () {
 	'use strict';
 	
-	var size = $('.selected').data('size');
+	var size = $('.selected').data('size'),
+		ready = true;
 	
 	function updateInfo() {
 		$('#score').text(MEMEMORYMATCHGAME.getScore());
@@ -110,33 +114,41 @@ $(document).ready(function () {
 	MEMEMORYMATCHGAME.setupTiles(Math.pow(size, 2));
 	
 	$('article').on('click', 'img', function () {
-		var selectedTile = $(this).closest('.tile'),
-			res = MEMEMORYMATCHGAME.selection(selectedTile.data('tile'));
-		
-		if (res === 'FirstPick') {
-			selectedTile.addClass('firstPick');
-			$(this).addClass('hidden');
-		} else {
-			selectedTile.addClass('secondPick');
-			$(this).addClass('hidden');
-			
-			if (res === 'FailedMatch') {
-				console.log('FailedMatch');
-				
-				setTimeout(function () {
-					$('.firstPick').find('img').removeClass('hidden');
+		if (ready) {	//check to see that ready for next selection
+			var selectedTile = $(this).closest('.tile'),
+				res = MEMEMORYMATCHGAME.selection(selectedTile.data('tile'));
+
+			if (res === 'FirstPick') {
+				selectedTile.addClass('firstPick');
+				$(this).addClass('hidden');
+			} else {
+				selectedTile.addClass('secondPick');
+				$(this).addClass('hidden');
+
+				if (res === 'FailedMatch') {
+					console.log('FailedMatch');
+					ready = false;
+					
+					setTimeout(function () {
+						$('.firstPick').find('img').removeClass('hidden');
+						$('.firstPick').removeClass('firstPick');
+						$('.secondPick').find('img').removeClass('hidden');
+						$('.secondPick').removeClass('secondPick');
+						ready = true;
+					}, 1000);
+				} else if (res === 'SuccessfulMatch') {
+					console.log('SuccessfulMatch');
+
 					$('.firstPick').removeClass('firstPick');
-					$('.secondPick').find('img').removeClass('hidden');
 					$('.secondPick').removeClass('secondPick');
-				}, 1000);
-			} else if (res === 'SuccessfulMatch') {
-				console.log('SuccessfulMatch');
-				
-				$('.firstPick').removeClass('firstPick');
-				$('.secondPick').removeClass('secondPick');
+					
+					if (MEMEMORYMATCHGAME.getMatches() === 0) {
+						console.log("Winner");
+					}
+				}
+
+				updateInfo();
 			}
-			
-			updateInfo();
 		}
 	});
 	

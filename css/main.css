@@ -183,13 +183,13 @@ article div {
 }
 
 #tile0 {
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
 	background-image: url(../img/github.png);	
 }
 
 .tile {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	width: 121px;
 	height: 121px;
 }
